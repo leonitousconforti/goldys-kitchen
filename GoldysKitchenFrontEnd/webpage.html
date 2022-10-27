@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <title>Goldy's Kitchen</title>
+        <link rel="stylesheet" href="webpage_style.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="grid-container">
+            <div class="header">
+                <h1 id="web-title">Goldy's Kitchen</h1>
+            </div>
+            <div class="search-area">
+                <!-- <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Enter Ingredients">
+                    <button class="btn btn-outline-secondary" type="button" id="button-addon2">Add Ingredients</button>
+                </div> -->
+                <div class="input-area">
+                    <input type="text" id="ingredient-input" placeholder="Start Typing Ingredients..." onkeydown="keyPressed(event)" name="ingredient-input">
+                    <!-- <input type="submit" id="add-ingredient" value="Add Ingredient" onclick="addIngredient()"> -->
+                </div>
+            </div>
+            <div class="ingredient-area">
+                <ul id="ingredient-list">
+                </ul>
+            </div>
+        </div>
+        <script src="webpage_scripts.js"></script>
+    </body>
+</html>

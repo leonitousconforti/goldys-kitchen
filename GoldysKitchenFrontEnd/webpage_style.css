@@ -1,0 +1,52 @@
+div.grid-container .ingredient-area {
+  background-color: maroon;
+}
+
+div.grid-container {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  grid-template: 5rem auto/3fr 1fr;
+  grid-template-areas: "head head" "search-area ingredient-area";
+}
+div.grid-container .header {
+  background-color: gold;
+  grid-area: head;
+}
+div.grid-container .header #web-title {
+  margin: 15px;
+}
+div.grid-container .ingredient-area {
+  grid-area: ingredient-area;
+  color: white;
+}
+div.grid-container .ingredient-area #ingredient-list {
+  margin: 20px;
+  font-size: large;
+}
+div.grid-container .search-area {
+  grid-area: search-area;
+}
+div.grid-container .search-area .input-area #ingredient-input {
+  width: 100%;
+  height: 50px;
+  text-align: center;
+}
+
+html {
+  width: 100%; /* 100% width of parent (root) element */
+  height: 100vh; /* 100% height of viewport */
+  background: rgba(0, 0, 0, 0.1); /* 10% opacity black (very light gray) */
+  font-size: 1em; /* root font size */
+}
+
+body {
+  margin: 0; /* no margin at edge of content */
+  height: 100%; /* 100% height of parent (html) element */
+}
+
+.input-group.mb-3 .form-control {
+  text-align: center;
+}
+
+/*# sourceMappingURL=webpage_style.css.map */
