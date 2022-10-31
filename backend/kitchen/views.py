@@ -29,6 +29,19 @@ def index(request):
 
     return HttpResponse(template.render(context, request))
 
+def recepies(request, ing_list):
+    ing_list = ing_list.split("+")
+    print(ing_list)
+
+    recepies = Recepie.objects.filter(ingredients__id__in=ing_list).distinct()
+
+    template = loader.get_template('kitchen/recepies.html')
+    context = {"recepies": recepies}
+
+    print(recepies)
+
+    return HttpResponse(template.render(context, request))
+
 def detail(request, recepie_id):
     try:
         recepie = Recepie.objects.get(pk=recepie_id)

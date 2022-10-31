@@ -16,7 +16,6 @@
         </li>
     {% endfor %}
     </ul>
-,<button type="button">+</button>
 
     <script>
       console.log("herasae");
@@ -26,8 +25,10 @@
       function findRec()
       {
         console.log(ing_list);
-      },<button type="button">+</button>
-
+        var str = "";
+        ing_list.forEach(ing => { str += ing.id + "+"; });
+        window.location = '/kitchen/recepies/' + str.slice(0, str.length - 1);
+      }
 
       fetch("http://127.0.0.1:8000/api/ingredient/?format=json", {
           headers:{

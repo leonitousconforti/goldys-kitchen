@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <body>
+
+    <h1>Goldy's Kitchen</h1>
+
+    <ul>
+    {% for recepie in recepies %}
+        <li><a href="/kitchen/{{recepie.id}}">{{ recepie.name }}</a></li>
+    {% endfor %}
+    </ul>
+
+  </body>
+</html>
