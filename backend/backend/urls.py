@@ -21,8 +21,8 @@ from kitchen import views
 
 router = routers.DefaultRouter()
 router.register(r'ingredient', views.IngredientView)
-router.register(r'recepie', views.RecepieView)
-router.register(r'quantity', views.QuantityView)
+# router.register(r'recepie', views.RecepieView)
+# router.register(r'quantity', views.QuantityView)
 
 urlpatterns = [
     path('kitchen/', include('kitchen.urls')),

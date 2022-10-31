@@ -20,7 +20,6 @@ class Quantity(models.Model):
     recepie = models.ForeignKey(Recepie, on_delete=models.CASCADE)
     ingredient = models.ForeignKey(Ingredient, on_delete=models.CASCADE)
     quantity = models.FloatField()
-    #whatquantity = string
 
     def __str__(self):
         return str(self.ingredient) + " * " + str(self.quantity) +  " -> " + str(self.recepie)

@@ -1,7 +1,112 @@
-<p>
-    HI
-</p>
+<!DOCTYPE html>
+<html>
+  <body>
 
-<script>
+    <h1>My First Heading</h1>
+    <input id="name" type="text" placeholder="Search..">
+    <button type="button" onclick="findRec()" >Go</button>
+    <p id="ing_list" ></p>
 
-</script>
+    <ul id="drop-down" >
+    {% for ingredient in ingredients %}
+        <li id="{{ingredient.id}}" >
+          {{ ingredient.name }}
+          <button type="button">+</button>
+          <button type="button">-</button>
+        </li>
+    {% endfor %}
+    </ul>
+
+    <script>
+      console.log("herasae");
+
+      var ing_list = [];
+
+      function findRec()
+      {
+        console.log(ing_list);
+      }
+
+      fetch("http://127.0.0.1:8000/api/ingredient/?format=json", {
+          headers:{
+              'Accept': 'application/json',
+              'X-Requested-With': 'XMLHttpRequest', //Necessary to work with request.is_ajax()
+          }
+      })
+      .then(response => {
+        console.log("here");
+          return response.json() //Convert response to JSON
+      })
+      .then(data => {
+          ingredients = data;
+          console.log(ingredients);
+
+          document.getElementById('name').addEventListener('input', function() {
+            var search = this.value.toUpperCase();
+
+            ingredients.forEach(ing =>
+            {
+              var li = document.getElementById(ing.id.toString());
+              if(ing.name.toUpperCase().indexOf(search) > -1)
+              {
+                li.style.display = "";
+              }
+              else
+              {
+                li.style.display = "none";
+              }
+            });
+          });
+
+          ingredients.forEach(ing =>
+          {
+            var li = document.getElementById(ing.id.toString());
+            li.getElementsByTagName("button")[0].addEventListener('click', function()
+            {
+              if (!ing_list.includes(ing))
+              {
+                ing_list.push(ing);
+                var str = "";
+                ing_list.forEach(ing => { str += ing.name + " "; });
+
+                document.getElementById('ing_list').innerText = str;
+              }
+            })
+
+            li.getElementsByTagName("button")[1].addEventListener('click', function()
+            {
+              if (ing_list.includes(ing))
+              {
+                ing_list = ing_list.filter(ing_other => ing_other.id != ing.id);
+
+                var str = "";
+                ing_list.forEach(ing => { str += ing.name + " "; });
+
+                document.getElementById('ing_list').innerText = str;
+              }
+            })
+          })
+
+          // function addIng(ing)
+          // {
+          //   if (!ing_list.includes(ing))
+          //   {
+          //     ing_list.push(ing);
+          //
+          //     var str = "";
+          //     ing_list.forEach(id =>
+          //     {
+          //       str += id.toString() + " ";
+          //     })
+          //
+          //     document.getElementById('ing_list').innerText = str;
+          //
+          //   }
+          // }
+
+      })
+
+    </script>
+
+  </body>
+</html>
