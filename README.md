@@ -3,7 +3,7 @@
 How to Start our Backend
 ```
 cd backend
-pip install requirments.txt
+python3 -m pip install requirements.txt
 python3 manage.py runserver
 ```
 
