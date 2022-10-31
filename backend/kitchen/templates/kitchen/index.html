@@ -2,7 +2,7 @@
 <html>
   <body>
 
-    <h1>My First Heading</h1>
+    <h1>Goldy's Kitchen</h1>
     <input id="name" type="text" placeholder="Search..">
     <button type="button" onclick="findRec()" >Go</button>
     <p id="ing_list" ></p>
@@ -16,6 +16,7 @@
         </li>
     {% endfor %}
     </ul>
+,<button type="button">+</button>
 
     <script>
       console.log("herasae");
@@ -25,7 +26,8 @@
       function findRec()
       {
         console.log(ing_list);
-      }
+      },<button type="button">+</button>
+
 
       fetch("http://127.0.0.1:8000/api/ingredient/?format=json", {
           headers:{
